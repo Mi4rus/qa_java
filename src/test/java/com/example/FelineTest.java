@@ -36,7 +36,6 @@ class FelineTest {
 
         List<String> result = feline.eatMeat();
         String [] expectedResult = {"Животные", "Птицы", "Рыба"};
-
         assertArrayEquals(expectedResult, result.toArray());
 
     }
