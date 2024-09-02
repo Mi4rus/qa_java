@@ -18,13 +18,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 public class LionTest {
     private Lion lion;
+    private String sex;
 
     @Mock
     private Feline feline;
 
     @BeforeEach
     public void setUp() throws Exception {
-        lion = new Lion(feline);
+        lion = new Lion("Самец",feline);
     }
 
     @AfterEach
@@ -46,14 +47,14 @@ public class LionTest {
     @Test
     public void testDoesHaveManeDefault() {
         boolean result = lion.doesHaveMane();
+        boolean expectedResult = true;
 
-        assertFalse(result);
+        assertEquals(expectedResult,result);
     }
     @Test
     public void testDoesHaveManeThrowsException() throws Exception {
-        Lion lion;
 
-        Exception exception = assertThrows(Exception.class,()-> new Lion("Другой пол"));
+        Exception exception = assertThrows(Exception.class,()-> new Lion("Другой пол", feline));
         assertEquals("Используйте допустимые значения пола животного - самец или самка",exception.getMessage());
 
     }
@@ -64,7 +65,7 @@ public class LionTest {
             "Самка,false"
     })
     public void testDoesHaveManeWithSex(String sex, boolean expectedResult) throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(sex,feline);
 
         boolean result = lion.doesHaveMane();
         assertEquals(expectedResult,result);

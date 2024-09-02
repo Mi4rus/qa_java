@@ -3,31 +3,18 @@ package com.example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
-@ExtendWith(MockitoExtension.class)
+
 class FelineTest {
-
-
-    @Mock
-    private Feline feline;
-
     @BeforeEach
     void setUp() {
-
     }
 
     @AfterEach
     void tearDown() {
-        Mockito.reset(feline);
     }
 
     @Test
